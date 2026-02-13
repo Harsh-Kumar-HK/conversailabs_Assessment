@@ -1,0 +1,19 @@
+Login : 
+
+curl -X POST http://localhost:3000/auth/login -H "Content-Type: application/json" -d '{"email":"harshkumarhk1505@gmail.com","password":"password123"}'
+
+{"message":"OTP sent","loginSessionId":"ucvm87"}
+
+
+verification of otp : 
+
+curl -c cookies.txt -X POST http://localhost:3000/auth/verify-otp -H "Content-Type: application/json" -d '{"loginSessionId":"ucvm87","otp":"241969"}'
+
+{"message":"OTP verified","sessionId":"ucvm87"}
+
+
+Token : 
+curl -X POST http://localhost:3000/auth/token \
+-H "Authorization: Bearer ucvm87"
+
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhcnNoa3VtYXJoazE1MDVAZ21haWwuY29tIiwic2Vzc2lvbklkIjoiQmVhcmVyIHVjdm04NyIsImlhdCI6MTc3MDk2MzUzNiwiZXhwIjoxNzcwOTY0NDM2fQ.yz_RZP3ihmIpVOZ9dOc9AVG7gVcTR_ajDLYLHZdc7cg","expires_in":900}
